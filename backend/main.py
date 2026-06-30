@@ -10,10 +10,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 
 # 1. DATABASE CONFIGURATION
-DATABASE_URL = "postgresql://neondb_owner:npg_ArzVCIsZ46Ho@ep-dawn-meadow-abgtenqx.eu-west-2.aws.neon.tech/neondb?sslmode=require"
+DATABASE_URL = "sqlite:///./health_tracker.db"
 
 # The engine connects Python to the database, and SessionLocal handles individual transactions
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
@@ -28,7 +28,7 @@ class DBFoodEntry(Base):
     fats = Column(Float, default=0.0)
     timestamp = Column(DateTime, default=datetime.utcnow)
 
-Class DBFitnessEntry(Base): 
+class DBFitnessEntry(Base): 
     __tablename__ = "fitness_logs"
     id = Column(Integer, primary_key=True, index=True)
     walks_count = Column(Integer, default=0)
@@ -88,7 +88,7 @@ def read_root():
 @app.get("/api/logs", response_model=List[FoodEntrySchema])
 def get_all_logs(db: Session = Depends(get_db)):
     """Queries the database to pull down all existing records."""
-    return db.query(DBFoodEntry).order_by(DBFoodEntry.timestampdesc()).all()
+    return db.query(DBFoodEntry).order_by(DBFoodEntry.timestamp.desc()).all()
 
 @app.post("/api/logs", response_model=FoodEntrySchema, status_code=201)
 def create_log_entry(entry: FoodEntrySchema, db: Session = Depends(get_db)):
