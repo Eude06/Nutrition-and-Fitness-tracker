@@ -4,6 +4,8 @@ from pydantic import BaseModel, Field
 from typing import List, Optional
 from datetime import datetime
 
+import socket
+
 # --- SQL DATABASE IMPORTS ---
 from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime
 from sqlalchemy.ext.declarative import declarative_base
@@ -141,3 +143,23 @@ def delete_fitness_entry(entry_id: int, db: Session = Depends(get_db)):
     db.delete(db_entry)
     db.commit()
     return {"message": "Fitness entry deleted successfully"}
+
+def get_local_ip():
+    s = socket.socket(socket.AF_INET, socket.Sock_DGRAM)
+    try:
+        s.connect(("8.8.8.8", 80))
+        ip = s.getsockname()[0]
+    except Exception:
+        ip = "127.0.0.1"
+    finally:
+        s.close()
+    return ip
+
+if __name__ == "__main__":
+    local_ip = get_local_ip()
+    print("\n" + "=" * 50)
+    print(f" Server running locally: http://localhost:8000")
+    print(f" Open this link on your iphone: http://{local_ip}:8000")
+    print("=" * 50 + "\n")
+
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
