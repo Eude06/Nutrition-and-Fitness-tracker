@@ -31,15 +31,6 @@ Follow these steps to set up and run the project locally.
 * [Python](https://www.python.org/) (v3.10 or higher)
 * [Git](https://git-scm.com/)
 
----
-
-### 📥 Local Setup Guide
-
-#### 1. Clone the Repository
-```bash
-git clone https://github.com/Eude06/Nutrition-and-Fitness-tracker.git
-cd Nutrition-and-Fitness-tracker
-
 Markdown
 
 ### 📈 Cleaned Dataset Overview
@@ -57,3 +48,12 @@ Markdown
 | 2016-04-13 | 10,735 | 1,797 |
 | 2016-04-14 | 10,460 | 1,776 |
 [View Cleaned Fitbit Data Set](backend/data/cleaned/daily_activity_cleaned.csv)
+
+---
+
+### 📥 Local Setup Guide
+
+#### 1. Clone the Repository
+```bash
+git clone https://github.com/Eude06/Nutrition-and-Fitness-tracker.git
+cd Nutrition-and-Fitness-tracker
