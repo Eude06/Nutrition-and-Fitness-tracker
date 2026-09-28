@@ -6,6 +6,7 @@ from datetime import datetime
 
 import socket
 
+
 # --- SQL DATABASE IMPORTS ---
 from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime
 from sqlalchemy.ext.declarative import declarative_base
@@ -143,6 +144,23 @@ def delete_fitness_entry(entry_id: int, db: Session = Depends(get_db)):
     db.delete(db_entry)
     db.commit()
     return {"message": "Fitness entry deleted successfully"}
+
+import os
+import pandas as pd
+
+@app.get("/api/cleaned-data")
+def get_cleaned_data():
+    """Reads and serves the cleaned Fitbit CSV dataset to the frontend."""
+    csv_path = os.path.join(os.path.dirname(__file__), "data", "cleaned", "daily_activity_cleaned.csv"
+)
+
+    if os.path.exists(csv_path):
+        df = pd.read_csv(csv_path)
+        # Handle NaN values for clean JSON output
+        df = df.where(pd.notnull(df), None)
+        return df.to_dict(orient="records")
+
+    return {"error": "Cleaned dataset CSV file not found"}
 
 def get_local_ip():
     s = socket.socket(socket.AF_INET, socket.Sock_DGRAM)
