@@ -1,59 +1,70 @@
 # 🏋️‍♂️ Nutrition and Fitness Tracker
 
-A full-stack web application designed to help users track daily meals, log workouts and monitor health goals.
+A full-stack web application designed to help users track daily meals, log workouts, and monitor health goals through interactive analytics.
+
+🚀 **Live App:** [https://nutrition-and-fitness-tracker-kappa.vercel.app](https://nutrition-and-fitness-tracker-kappa.vercel.app)  
+⚡ **API Docs:** [https://nutrition-and-fitness-tracker-0jo4.onrender.com](https://nutrition-and-fitness-tracker-0jo4.onrender.com)
 
 ---
 
-## 🎯 Current Scope
+## 📸 Dashboard Preview
 
-The application is centered around manual activity and nutrition logging:
-* **Meal & Nutrition Logging:** Manually record daily meals, ingredients and nutritional intake.
-* **Fitness Logs:** Log individual workouts and exercise sessions to maintain a consistent tracking history.
-* **Local Data Management:** Fast local data handling powered by FastAPI and SQLite.
+![NutriFit Dashboard](frontend/src/assets/dashboard-preview.png)
+
+---
+
+## 🎯 Current Scope & Features
+
+* **Meal & Nutrition Logging:** Manually record daily meals, ingredients, and macronutrient intake.
+* **Fitness & Activity Metrics:** Log workouts and track step metrics, active energy expenditure, and sleep trends.
+* **Interactive Data Visualization:** Dynamic charts powered by Recharts for weekly calories, steps, and macronutrient distributions.
+* **Data Pipelines & Storage:** Cleaned dataset ingestion and local data handling powered by FastAPI and SQLite.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** React, HTML5, CSS3, JavaScript
-* **Backend:** Python, FastAPI, SQLite
-* **Tooling:** Git, Visual Studio Code
+* **Frontend:** React, Vite, Tailwind CSS, Recharts, JavaScript (ES6+), HTML5, CSS3
+* **Backend:** Python, FastAPI, SQLite, Pandas (Data Cleaning)
+* **Deployment & Hosting:** Vercel (Frontend), Render (Backend)
+* **Tooling:** Git, GitHub, Visual Studio Code
 
 ---
 
-## 🏁 Getting Started
+## 📊 Cleaned Dataset Overview
 
-Follow these steps to set up and run the project locally.
-
-### Prerequisites
-
-* [Node.js](https://nodejs.org/) (v16 or higher)
-* [Python](https://www.python.org/) (v3.10 or higher)
-* [Git](https://git-scm.com/)
-
-Markdown
-
-### 📈 Cleaned Dataset Overview
+The backend integrates cleaned Fitbit activity data to provide benchmark health metrics:
 
 | Metric | Sample Values |
-| :-- | :-- |
+| :--- | :--- |
 | **Total Cleaned Records** | 396 rows |
 | **Average Daily Steps** | ~7,637 |
-| **Active Tracking Days** | April 12 - May 12 |
+| **Active Tracking Days** | April 12 – May 12 |
 
-#### Sample Data Preview
+### Sample Data Preview
+
 | ActivityDate | TotalSteps | Calories |
 | :--- | :--- | :--- |
 | 2016-04-12 | 13,162 | 1,985 |
 | 2016-04-13 | 10,735 | 1,797 |
 | 2016-04-14 | 10,460 | 1,776 |
-[View Cleaned Fitbit Data Set](backend/data/cleaned/daily_activity_cleaned.csv)
+
+🔗 [View Cleaned Fitbit Data Set File](./backend/data/cleaned/daily_activity_cleaned.csv)
 
 ---
 
-### 📥 Local Setup Guide
+## 🏁 Getting Started
 
-#### 1. Clone the Repository
+### Prerequisites
+* **Node.js** (v16 or higher)
+* **Python** (v3.10 or higher)
+* **Git**
+
+---
+
+## 📦 Local Setup Guide
+
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/Eude06/Nutrition-and-Fitness-tracker.git
+git clone [https://github.com/Eude06/Nutrition-and-Fitness-tracker.git](https://github.com/Eude06/Nutrition-and-Fitness-tracker.git)
 cd Nutrition-and-Fitness-tracker
