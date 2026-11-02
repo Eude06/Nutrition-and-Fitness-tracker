@@ -9,7 +9,8 @@ A full-stack web application designed to help users track daily meals, log worko
 
 ## 📸 Dashboard Preview
 
-![NutriFit Dashboard](frontend/src/assets/dashboard-preview.png)
+![NutriFit Dashboard](./frontend/src/assets/dashboard-preview.png)
+*Modern dark-mode analytics dashboard showing step progress, caloric expenditure, and weekly activity trends.*
 
 ---
 
