@@ -157,7 +157,7 @@ export default function App() {
                 <span>Daily Streak: 12 Days 🔥</span>
               </div>
               <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
-                Welcome back, Eude! 👋
+                Welcome back, Andre! 👋
               </h1>
               <p className="text-slate-400 text-sm mt-1 max-w-xl">
                 You've hit <span className="text-cyan-400 font-semibold">82%</span> of your daily movement goals today. Keep up the momentum!
